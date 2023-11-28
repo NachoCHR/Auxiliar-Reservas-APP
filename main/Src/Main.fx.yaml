@@ -167,14 +167,14 @@ Main As screen:
                     CountRows(
                         Filter(
                             AsistenciaReservas,
-                            Value(ReservaID) = ThisItem.ID
+                            ReservaID.Value = ThisItem.ID
                         )
-                    ) > 0,
-                    "Se encuentra",
-                    "No se encuentra"
+                ) > 0,
+                    "AsistenciaRegistrada",
+                    "AsistenciaNoRegistrada"
                 )
             VerticalAlign: =VerticalAlign.Top
-            Width: =166
+            Width: =123
             X: =396
             Y: =45
             ZIndex: =10
