@@ -1,0 +1,39 @@
+{
+  "1e41accc-58fc-4361-be70-0d4bc92f8ae6": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Write"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://udeconce-my.sharepoint.com/personal/jchavarria2018_udec_cl": {
+        "dataSources": {
+          "Reservas": {
+            "tableName": "93f5da21-7700-4bf0-9f7b-438ace867e3c"
+          }
+        }
+      },
+      "https://udeconce-my.sharepoint.com/personal/jchavarria2018_udec_cl/": {
+        "dataSources": {
+          "AsistenciaReservas": {
+            "tableName": "a61e6714-f802-46f6-8e7c-272726eaf616"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Reservas",
+      "AsistenciaReservas"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "1e41accc-58fc-4361-be70-0d4bc92f8ae6"
+  }
+}

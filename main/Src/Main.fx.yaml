@@ -1,0 +1,638 @@
+Main As screen:
+    Fill: =RGBA(255, 255, 255, 1)
+    OnVisible: |
+        =Set(VarYesOrNo,true)
+
+    "ListaReservas As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver5.0'":
+        DelayItemLoading: =true
+        DisplayMode: |+
+            =DisplayMode.Edit
+            
+        Height: =732
+        Items: |-
+            =Filter(
+                Reservas,
+                EDeportivos.Selected.Value = EspacioDeportivo.Value && DateValue(FechaInicio) = Today()
+            )
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =110
+        Y: =264
+        ZIndex: =1
+
+        Title2 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =25
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Usuario.DisplayName
+            VerticalAlign: =VerticalAlign.Top
+            Width: =393
+            X: =107
+            Y: =16
+            ZIndex: =1
+
+        Subtitle2 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =22
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: |-
+                ="Hora Inicio: "
+            VerticalAlign: =VerticalAlign.Top
+            Width: =91
+            X: =Title2.X
+            Y: =Title2.Y + Title2.Height
+            ZIndex: =2
+
+        NextArrow2 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Color: |-
+                =If(
+                    VarAsistencia,
+                    RGBA(5,255, 0, 1),
+                    RGBA(0, 0, 0, 1)
+                )
+            DisplayMode: |-
+                =If(
+                    TimeValue(HoraInicio.Text) <= TimeValue(Text(Now(), "hh:mm")),
+                    DisplayMode.Edit,
+                    DisplayMode.Disabled
+                )
+            Fill: =RGBA(255, 255, 255, 1)
+            Icon: =Icon.NextArrow
+            OnSelect: |-
+                =Set(ReserPor,Title2.Text);
+                Set(HorInicio, HoraInicio.Text);
+                Set(HorTermino, HoraTermino.Text);
+                Set(IDReserva, ThisItem.ID);
+                If(VarAsistencia,
+                    Set(VarShowPopUpEdit,true),
+                    Set(VarShowPopUp,true)
+                )
+            PaddingBottom: =16
+            PaddingLeft: =16
+            PaddingRight: =16
+            PaddingTop: =16
+            Tooltip: ="Ver los detalles del elemento"
+            Width: =63
+            X: =562
+            Y: =23
+            ZIndex: =3
+
+        Separator2 As rectangle:
+            Height: =8
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - Self.Height
+            ZIndex: =4
+
+        Rectangle2 As rectangle:
+            Height: =Parent.TemplateHeight - Separator2.Height
+            Visible: =ThisItem.IsSelected
+            Width: =4
+            ZIndex: =5
+
+        HoraInicio As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =18
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =TimeValue(ThisItem.FechaInicio)
+            VerticalAlign: =VerticalAlign.Top
+            Width: =48
+            X: =235
+            Y: =41
+            ZIndex: =6
+
+        HoraTermino As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =17
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =TimeValue(ThisItem.FechaTermino)
+            VerticalAlign: =VerticalAlign.Top
+            Width: =44
+            X: =258
+            Y: =63
+            ZIndex: =7
+
+        Subtitle2_3 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =17
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: |-
+                ="Hora Termino: "
+            VerticalAlign: =VerticalAlign.Top
+            Width: =129
+            X: =Title2.X
+            Y: =63
+            ZIndex: =8
+
+        Image2 As image:
+            Height: =80
+            Image: =User().Image
+            OnSelect: =Select(Parent)
+            Width: =96
+            Y: =15
+            ZIndex: =9
+
+    Button1 As button:
+        Fill: =RGBA(0, 121, 187, 1)
+        Height: =71
+        RadiusBottomLeft: =50
+        RadiusBottomRight: =50
+        RadiusTopLeft: =50
+        RadiusTopRight: =50
+        Size: =24
+        Text: ="Asistencias-APP!"
+        Width: =637
+        X: =3
+        ZIndex: =2
+
+    Titulo As label:
+        Align: =Align.Center
+        Fill: =RGBA(0, 134, 208, 1)
+        Height: =49
+        Size: =21
+        Text: =Today()
+        Width: =640
+        Y: =214
+        ZIndex: =3
+
+    EDeportivos As dropdown:
+        Default: ="Bascket"
+        Height: =55
+        Items: =Choices([@Reservas].EspacioDeportivo)
+        Size: =21
+        Width: =551
+        X: =68
+        Y: =132
+        ZIndex: =4
+
+    Icon1 As icon.Filter:
+        Height: =55
+        Icon: =Icon.Filter
+        Width: =53
+        X: =3
+        Y: =132
+        ZIndex: =5
+
+    Label5 As label:
+        Height: =61
+        Size: =21
+        Text: =
+        Width: =202
+        X: =372
+        Y: =71
+        ZIndex: =6
+
+    PopUp As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =42
+
+        Rectangle3 As rectangle:
+            Fill: =RGBA(0, 134, 208, 0.5)
+            Height: =1136
+            Visible: =VarShowPopUp
+            Width: =640
+            ZIndex: =7
+
+        Label6 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(0, 94, 146, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =70
+            Size: =21
+            Text: ="Confirmar asistencia"
+            Visible: =VarShowPopUp
+            Width: =640
+            Y: =245
+            ZIndex: =8
+
+        Rectangle4 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =585
+            Visible: =VarShowPopUp
+            Width: =640
+            Y: =315
+            ZIndex: =27
+
+        BCancelar As button:
+            Fill: =RGBA(255, 0, 0, 1)
+            Height: =52
+            OnSelect: =Set(VarShowPopUp,false)
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: =50
+            RadiusTopRight: =50
+            Text: ="Cancelar"
+            Visible: =VarShowPopUp
+            Width: =162
+            X: =112
+            Y: =828
+            ZIndex: =28
+
+        BEnvias As button:
+            Fill: =RGBA(141, 198, 63, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =51
+            OnSelect: |+
+                =Set(VarShowPopUp,false);
+                Set(VarAsistencia,true);
+                
+                
+                Patch(
+                    AsistenciaReservas,
+                    Defaults(AsistenciaReservas),
+                    {
+                        ReservaID: {
+                            Id: IDReserva,
+                            Value: Text(IDReserva)
+                        },
+                        Asistio: VarYesOrNo,
+                        Comentario: TextInput1.Text
+                    }
+                )
+                
+                
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: =50
+            RadiusTopRight: =50
+            Text: ="Enviar"
+            Visible: =VarShowPopUp
+            Width: =163
+            X: =372
+            Y: =828
+            ZIndex: =29
+
+        Label16 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =67
+            Size: =17
+            Text: |-
+                ="Comentario:"
+            Visible: =VarShowPopUp
+            Width: =160
+            Y: =696
+            ZIndex: =30
+
+        TextInput1 As text:
+            Default: =""
+            Height: =72
+            HintText: ="Opcional"
+            Size: =17
+            Visible: =VarShowPopUp
+            Width: =407
+            X: =160
+            Y: =691
+            ZIndex: =31
+
+        Label15 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            Size: =17
+            Text: ="Asistió?"
+            Visible: =VarShowPopUp
+            Width: =157
+            X: =3
+            Y: =575
+            ZIndex: =32
+
+        Label14 As label:
+            Height: =66
+            Size: =17
+            Text: =HorInicio&" - "&HorTermino&" Hrs."
+            Visible: =VarShowPopUp
+            Width: =244
+            X: =112
+            Y: =509
+            ZIndex: =33
+
+        Label13 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =66
+            Size: =17
+            Text: |-
+                ="Horario: "
+            Visible: =VarShowPopUp
+            Width: =109
+            X: =3
+            Y: =509
+            ZIndex: =34
+
+        Label12 As label:
+            Height: =64
+            Size: =17
+            Text: =Today()
+            Visible: =VarShowPopUp
+            Width: =275
+            X: =97
+            Y: =448
+            ZIndex: =35
+
+        Label11 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =58
+            Size: =17
+            Text: |-
+                ="Fecha: "
+            Visible: =VarShowPopUp
+            Width: =94
+            X: =3
+            Y: =451
+            ZIndex: =36
+
+        Label10 As label:
+            Height: =71
+            Size: =17
+            Text: =ReserPor
+            Visible: =VarShowPopUp
+            Width: =424
+            X: =195
+            Y: =389
+            ZIndex: =37
+
+        Label9 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =52
+            Size: =17
+            Text: |-
+                ="Reservado por:"
+            Visible: =VarShowPopUp
+            Width: =192
+            X: =3
+            Y: =399
+            ZIndex: =38
+
+        Label8 As label:
+            Height: =59
+            Size: =17
+            Text: =EDeportivos.Selected.Value
+            Visible: =VarShowPopUp
+            Width: =383
+            X: =236
+            Y: =340
+            ZIndex: =39
+
+        Label7 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =59
+            Size: =17
+            Text: |-
+                ="Espacio Deportivo: "
+            Visible: =VarShowPopUp
+            Width: =233
+            X: =3
+            Y: =340
+            ZIndex: =40
+
+        Radio1 As radio:
+            Align: =Align.Justify
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Default: ="Si"
+            Height: =113
+            Items: =["Si","No"]
+            OnChange: |-
+                =If(
+                    Radio1.Selected.Value = "Si",
+                    Set(VarYesOrNo,true),
+                    Set(VarYesOrNo,false)
+                )
+            RadioSelectionFill: |-
+                =If(VarYesOrNo,
+                    RGBA(141,198,63,1),
+                    RGBA(255,0,0,1)
+                )
+            RadioSize: =40
+            Size: =21
+            Visible: =VarShowPopUp
+            Width: =162
+            X: =153
+            Y: =566
+            ZIndex: =41
+
+    PopUpEdit As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =42
+
+        Rectangle3_1 As rectangle:
+            Fill: =RGBA(0, 134, 208, 0.5)
+            Height: =1136
+            Visible: =VarShowPopUpEdit
+            Width: =640
+            ZIndex: =9
+
+        Rectangle4_1 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =585
+            Visible: =VarShowPopUpEdit
+            Width: =640
+            Y: =315
+            ZIndex: =10
+
+        Label6_1 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(0, 94, 146, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =70
+            Size: =21
+            Text: ="Editar asistencia"
+            Visible: =VarShowPopUpEdit
+            Width: =640
+            Y: =245
+            ZIndex: =11
+
+        Label7_1 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =59
+            Size: =17
+            Text: |-
+                ="Espacio Deportivo: "
+            Visible: =VarShowPopUpEdit
+            Width: =233
+            X: =3
+            Y: =340
+            ZIndex: =12
+
+        Label8_1 As label:
+            Height: =59
+            Size: =17
+            Text: =EDeportivos.Selected.Value
+            Visible: =VarShowPopUpEdit
+            Width: =383
+            X: =236
+            Y: =340
+            ZIndex: =13
+
+        Label9_1 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =52
+            Size: =17
+            Text: |-
+                ="Reservado por:"
+            Visible: =VarShowPopUpEdit
+            Width: =192
+            X: =3
+            Y: =399
+            ZIndex: =14
+
+        Label10_1 As label:
+            Height: =71
+            Size: =17
+            Text: =ReserPor
+            Visible: =VarShowPopUpEdit
+            Width: =424
+            X: =195
+            Y: =389
+            ZIndex: =15
+
+        Label11_1 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =58
+            Size: =17
+            Text: |-
+                ="Fecha: "
+            Visible: =VarShowPopUpEdit
+            Width: =94
+            X: =3
+            Y: =451
+            ZIndex: =16
+
+        Label12_1 As label:
+            Height: =64
+            Size: =17
+            Text: =Today()
+            Visible: =VarShowPopUpEdit
+            Width: =275
+            X: =97
+            Y: =448
+            ZIndex: =17
+
+        Label13_1 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =66
+            Size: =17
+            Text: |-
+                ="Horario: "
+            Visible: =VarShowPopUpEdit
+            Width: =109
+            X: =3
+            Y: =509
+            ZIndex: =18
+
+        Label14_1 As label:
+            Height: =66
+            Size: =17
+            Text: =HorInicio&" - "&HorTermino&" Hrs."
+            Visible: =VarShowPopUpEdit
+            Width: =244
+            X: =112
+            Y: =509
+            ZIndex: =19
+
+        Label15_1 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =65
+            Size: =17
+            Text: ="Asistió?"
+            Visible: =VarShowPopUpEdit
+            Width: =157
+            X: =3
+            Y: =575
+            ZIndex: =20
+
+        Radio1_1 As radio:
+            Default: ="Si"
+            Height: =104
+            Items: =["Si","No"]
+            RadioSize: =40
+            Size: =21
+            Visible: =VarShowPopUpEdit
+            Width: =138
+            X: =112
+            Y: =575
+            ZIndex: =21
+
+        TextInput1_1 As text:
+            Default: =""
+            Height: =72
+            HintText: ="Opcional"
+            Size: =17
+            Visible: =VarShowPopUpEdit
+            Width: =407
+            X: =160
+            Y: =691
+            ZIndex: =22
+
+        Label16_1 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =67
+            Size: =17
+            Text: |-
+                ="Comentario:"
+            Visible: =VarShowPopUpEdit
+            Width: =160
+            Y: =696
+            ZIndex: =23
+
+        BEnvias_1 As button:
+            Fill: =RGBA(127, 178, 57, 1)
+            Height: =51
+            OnSelect: |
+                =Set(VarShowPopUpEdit,false);
+                Set(VarAsistencia,true)
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: =50
+            RadiusTopRight: =50
+            Text: ="Enviar"
+            Visible: =VarShowPopUpEdit
+            Width: =163
+            X: =372
+            Y: =828
+            ZIndex: =24
+
+        BCancelar_1 As button:
+            Fill: =RGBA(255, 0, 0, 1)
+            Height: =52
+            OnSelect: =Set(VarShowPopUpEdit,false)
+            RadiusBottomLeft: =50
+            RadiusBottomRight: =50
+            RadiusTopLeft: =50
+            RadiusTopRight: =50
+            Text: ="Cancelar"
+            Visible: =VarShowPopUpEdit
+            Width: =162
+            X: =112
+            Y: =828
+            ZIndex: =25
+
