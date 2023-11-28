@@ -167,7 +167,7 @@ Main As screen:
                     CountRows(
                         Filter(
                             AsistenciaReservas,
-                            ReservaID = Text(ThisItem.ID)
+                            Value(ReservaID) = ThisItem.ID
                         )
                     ) > 0,
                     "Se encuentra",
