@@ -61,7 +61,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "11/28/2023 22:42:46",
+  "HeaderLastSavedDateTimeUTC": "11/28/2023 22:46:06",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "1e41accc-58fc-4361-be70-0d4bc92f8ae6": "\"/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/219a0a627c6244faadd5d68a80a28f8a\""
@@ -201,7 +201,7 @@
     "EDeportivos": 7,
     "galleryTemplate1": 12,
     "HoraInicio": 18,
-    "HoraTermino": 21,
+    "HoraTermino": 20,
     "Host": 0,
     "Icon1": 6,
     "Image2": 14,
@@ -242,8 +242,8 @@
     "Rectangle4_1": 23,
     "Separator2": 22,
     "Subtitle2": 17,
-    "Subtitle2_1": 19,
-    "Subtitle2_3": 20,
+    "Subtitle2_1": 21,
+    "Subtitle2_3": 19,
     "TextInput1": 46,
     "TextInput1_1": 45,
     "Title2": 15,

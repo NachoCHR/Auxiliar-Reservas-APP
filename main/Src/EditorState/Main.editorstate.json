@@ -2092,7 +2092,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "HoraTermino",
-      "ParentIndex": 9,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11517,7 +11517,14 @@
           "NameMapSourceSchema": "?"
         },
         "Role",
-        "Color",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "RGBA(0, 0, 0, 1)",
+          "InvariantPropertyName": "Color",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "DisabledColor",
         "PressedColor",
         "HoverColor",
@@ -11559,7 +11566,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Subtitle2_1",
-      "ParentIndex": 7,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11797,7 +11804,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Subtitle2_3",
-      "ParentIndex": 8,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
