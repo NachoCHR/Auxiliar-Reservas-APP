@@ -178,7 +178,7 @@ Main As screen:
         ZIndex: =3
 
     EDeportivos As dropdown:
-        Default: ="Bascket"
+        Default: ="Cancha Hockey"
         Height: =55
         Items: =Choices([@Reservas].EspacioDeportivo)
         Size: =21
