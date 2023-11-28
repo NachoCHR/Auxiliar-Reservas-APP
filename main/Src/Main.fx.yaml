@@ -162,12 +162,12 @@ Main As screen:
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
-            Text: |
+            Text: |-
                 =If(
                     CountRows(
                         Filter(
-                            [@AsistenciaReservas],
-                            ReservaID = ThisItem.ID
+                            AsistenciaReservas,
+                            ReservaID = Text(ThisItem.ID)
                         )
                     ) > 0,
                     "Se encuentra",
