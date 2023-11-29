@@ -8,7 +8,7 @@ Main As screen:
         DisplayMode: |+
             =DisplayMode.Edit
             
-        Height: =732
+        Height: =872
         Items: |-
             =Filter(
                 Reservas,
@@ -55,10 +55,11 @@ Main As screen:
         NextArrow2 As icon.ChevronRight:
             AccessibleLabel: =Self.Tooltip
             Color: |-
-                =If(
-                    VarAsistencia,
-                    RGBA(5,255, 0, 1),
-                    RGBA(0, 0, 0, 1)
+                =If( 
+                    Subtitle2_1.Text = "Asistencia no registrada",
+                    RGBA(0, 0, 0, 1),
+                    RGBA(5,255, 0, 1)
+                    
                 )
             DisplayMode: |-
                 =If(
@@ -73,7 +74,8 @@ Main As screen:
                 Set(HorInicio, HoraInicio.Text);
                 Set(HorTermino, HoraTermino.Text);
                 Set(IDReserva, ThisItem.ID);
-                If(VarAsistencia,
+                
+                If(Subtitle2_1.Text = "Asistencia registrada", 
                     Set(VarShowPopUpEdit,true),
                     Set(VarShowPopUp,true)
                 )
@@ -653,7 +655,7 @@ Main As screen:
                     LookUp(AsistenciaReservas, ReservaID.Id = IDReserva),
                     {
                         Asistio: VarYesOrNo2,
-                        Comentario: TextInput1.Text
+                        Comentario: TextInput1_1.Text
                     }
                 )
                 
