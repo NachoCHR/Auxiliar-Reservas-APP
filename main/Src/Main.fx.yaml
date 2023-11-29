@@ -606,6 +606,12 @@ Main As screen:
             Default: ="Si"
             Height: =104
             Items: =["Si","No"]
+            OnChange: |-
+                =If(
+                    Radio1_1.Selected.Value = "Si",
+                    Set(VarYesOrNo2,true),
+                    Set(VarYesOrNo2,false)
+                )
             RadioSize: =40
             Size: =21
             Visible: =VarShowPopUpEdit
@@ -646,7 +652,7 @@ Main As screen:
                     AsistenciaReservas,
                     LookUp(AsistenciaReservas, ReservaID.Id = IDReserva),
                     {
-                        Asistio: VarYesOrNo,
+                        Asistio: VarYesOrNo2,
                         Comentario: TextInput1.Text
                     }
                 )
