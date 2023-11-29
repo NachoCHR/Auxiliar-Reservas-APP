@@ -309,7 +309,9 @@ Main As screen:
                         Asistio: VarYesOrNo,
                         Comentario: TextInput1.Text
                     }
-                )
+                );
+                
+                Reset(TextInput1)
                 
                 
             RadiusBottomLeft: =50
