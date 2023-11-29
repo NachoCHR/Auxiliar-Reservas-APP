@@ -11,7 +11,7 @@
     "EDeportivos": 10,
     "galleryTemplate1": 15,
     "HoraInicio": 21,
-    "HoraTermino": 24,
+    "HoraTermino": 23,
     "Host": 3,
     "Icon1": 9,
     "Image2": 17,
@@ -52,8 +52,8 @@
     "Rectangle4_1": 26,
     "Separator2": 25,
     "Subtitle2": 20,
-    "Subtitle2_1": 22,
-    "Subtitle2_3": 23,
+    "Subtitle2_1": 24,
+    "Subtitle2_3": 22,
     "TextInput1": 49,
     "TextInput1_1": 48,
     "Title2": 18,
@@ -61,10 +61,10 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "11/28/2023 22:46:06",
+  "HeaderLastSavedDateTimeUTC": "11/29/2023 19:05:28",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
-    "1e41accc-58fc-4361-be70-0d4bc92f8ae6": "\"/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/219a0a627c6244faadd5d68a80a28f8a\""
+    "1e41accc-58fc-4361-be70-0d4bc92f8ae6": "\"/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/shared-sharepointonl-2dfcfd62-8c77-4485-a8a2-3c555dc2f9ba\""
   },
   "LocalDatabaseReferencesAsEmpty": false,
   "LocalResourceFileNames": {},
@@ -255,7 +255,7 @@
   "RuleScreenIdWithoutScreen": {},
   "TemplateVersions": {},
   "VolatileProperties": {
-    "AnalysisLoadTime": 0.3066471,
+    "AnalysisLoadTime": 0.3138688,
     "ControlCount": {
       "button": 5,
       "dropdown": 1,
@@ -270,7 +270,7 @@
       "screen": 1,
       "text": 2
     },
-    "DeserializationLoadTime": 0.7951892
+    "DeserializationLoadTime": 1.1107995
   },
   "WasLocalDatabaseReferencesEmpty": true
 }

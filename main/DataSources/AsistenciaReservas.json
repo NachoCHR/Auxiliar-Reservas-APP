@@ -41,7 +41,7 @@
     "DatasetName": "https://udeconce-my.sharepoint.com/personal/jchavarria2018_udec_cl/",
     "EncodeDataset": true,
     "IsSampleData": false,
-    "IsWritable": true,
+    "IsWritable": false,
     "Name": "AsistenciaReservas",
     "Type": "ConnectedDataSourceInfo"
   }
