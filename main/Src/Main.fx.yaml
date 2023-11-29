@@ -200,6 +200,7 @@ Main As screen:
 
     Titulo As label:
         Align: =Align.Center
+        Color: =RGBA(241, 244, 249, 1)
         Fill: =RGBA(0, 134, 208, 1)
         Height: =49
         Size: =21
@@ -638,9 +639,18 @@ Main As screen:
         BEnvias_1 As button:
             Fill: =RGBA(127, 178, 57, 1)
             Height: =51
-            OnSelect: |
+            OnSelect: |+
                 =Set(VarShowPopUpEdit,false);
-                Set(VarAsistencia,true)
+                Set(VarAsistencia,true);
+                Patch(
+                    AsistenciaReservas,
+                    LookUp(AsistenciaReservas, ReservaID.Id = IDReserva),
+                    {
+                        Asistio: VarYesOrNo,
+                        Comentario: TextInput1.Text
+                    }
+                )
+                
             RadiusBottomLeft: =50
             RadiusBottomRight: =50
             RadiusTopLeft: =50

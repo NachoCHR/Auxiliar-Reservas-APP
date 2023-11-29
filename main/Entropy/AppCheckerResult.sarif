@@ -215,40 +215,80 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Main.BEnvias.OnSelect"
+                  "fullyQualifiedName": "Main.BEnvias_1.OnSelect"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Main.BEnvias.OnSelect",
+                  "fullyQualifiedName": "Main.BEnvias_1.OnSelect",
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 18,
-                  "charOffset": 65,
+                  "charLength": 3,
+                  "charOffset": 127,
                   "snippet": {
-                    "text": "AsistenciaReservas"
+                    "text": ".Id"
                   }
                 }
               },
               "properties": {
                 "member": "OnSelect",
                 "module": "Main",
-                "type": "Main.BEnvias"
+                "type": "Main.BEnvias_1"
               }
             }
           ],
           "message": {
             "arguments": [
-              "Patch"
+              "ReservaID.Id"
             ],
             "id": "issue"
           },
           "properties": {
-            "level": "High"
+            "level": "Medium"
           },
-          "ruleId": "app-ErrWriteToReadOnlyDataSource",
+          "ruleId": "app-SuggestRemoteExecutionHint-OpNotSupportedByColumn",
           "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Main.BEnvias_1.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Main.BEnvias_1.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 1,
+                  "charOffset": 131,
+                  "snippet": {
+                    "text": "="
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Main",
+                "type": "Main.BEnvias_1"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "LookUp"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 0
         },
         {
           "locations": [
@@ -613,19 +653,20 @@
               }
             },
             {
-              "id": "app-ErrWriteToReadOnlyDataSource",
+              "id": "app-SuggestRemoteExecutionHint-OpNotSupportedByColumn",
               "messageStrings": {
                 "issue": {
-                  "text": "The data source is either read-only or has no primary key, so the function {0} can’t write to it. "
+                  "text": "Delegation warning. The highlighted part of this formula might not work correctly with column \"{0}\" on large data sets."
                 }
               },
               "properties": {
                 "componentType": "app",
                 "howToFix": [
-                  "Confirm that the data source isn’t read-only and that you have write access to it. ",
-                  "If this data source is a SQL table, ensure that it has a primary key. For write operations, Power Apps requires SQL tables to have a primary key."
+                  "If your data set exceeds the 500 record limit but contains less than 2,000 records, try resetting the limit.",
+                  "Try simplifying the formula.",
+                  "Try moving your data to a different data source."
                 ],
-                "level": "High",
+                "level": "Medium",
                 "primaryCategory": "formula",
                 "whyFix": ""
               }
