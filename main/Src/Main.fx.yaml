@@ -157,7 +157,7 @@ Main As screen:
 
         Image2 As image:
             Height: =80
-            Image: =User().Image
+            Image: =ThisItem.Usuario.Picture
             OnSelect: =Select(Parent)
             Width: =96
             Y: =15
