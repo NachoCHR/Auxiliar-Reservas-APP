@@ -6,7 +6,7 @@ Main As screen:
     "ListaReservas As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver5.0'":
         DelayItemLoading: =true
         DisplayMode: |+
-            =DisplayMode.Edit
+            =DisplayMode.View
             
         Height: =872
         Items: |-
@@ -22,6 +22,7 @@ Main As screen:
             )
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
+        Selectable: =false
         TemplatePadding: =0
         TemplateSize: =122
         Y: =264
@@ -285,7 +286,9 @@ Main As screen:
         BCancelar As button:
             Fill: =RGBA(255, 0, 0, 1)
             Height: =52
-            OnSelect: =Set(VarShowPopUp,false)
+            OnSelect: |-
+                =Set(VarShowPopUp,false);
+                Reset(TextInput1)
             RadiusBottomLeft: =50
             RadiusBottomRight: =50
             RadiusTopLeft: =50
@@ -317,7 +320,9 @@ Main As screen:
                         Asistio: VarYesOrNo,
                         Comentario: TextInput1.Text
                     }
-                )
+                );
+                
+                Reset(TextInput1)
                 
                 
             RadiusBottomLeft: =50
