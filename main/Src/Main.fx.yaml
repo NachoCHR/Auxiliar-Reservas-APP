@@ -6,7 +6,7 @@ Main As screen:
     "ListaReservas As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver5.0'":
         DelayItemLoading: =true
         DisplayMode: |+
-            =DisplayMode.Edit
+            =DisplayMode.View
             
         Height: =872
         Items: |-
