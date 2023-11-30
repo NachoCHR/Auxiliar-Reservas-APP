@@ -10,9 +10,15 @@ Main As screen:
             
         Height: =872
         Items: |-
-            =Filter(
-                Reservas,
-                EDeportivos.Selected.Value = EspacioDeportivo.Value && DateValue(FechaInicio) = Today()
+            =SortByColumns(
+            
+                Filter(
+                    Reservas,
+                    EDeportivos.Selected.Value = EspacioDeportivo.Value && DateValue(FechaInicio) = Today()
+                ),
+            
+                // Columna por la cual ordenar las reservas (en este caso, "Fecha inicio").
+                "Fechainicio"
             )
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
@@ -188,8 +194,10 @@ Main As screen:
             ZIndex: =10
 
     Button1 As button:
+        DisplayMode: =DisplayMode.View
         Fill: =RGBA(0, 121, 187, 1)
         Height: =71
+        HoverFill: =RGBA(0, 121, 187, 1)
         RadiusBottomLeft: =50
         RadiusBottomRight: =50
         RadiusTopLeft: =50
