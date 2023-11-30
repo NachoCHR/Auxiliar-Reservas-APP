@@ -16,6 +16,7 @@ Main As screen:
             )
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
+        Selectable: =false
         TemplatePadding: =0
         TemplateSize: =122
         Y: =264
